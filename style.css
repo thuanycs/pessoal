@@ -1,0 +1,408 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #0d1b2a;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.tela {
+  display: none;
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow-y: auto;
+}
+
+.ativa {
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2em;
+}
+
+.gift-box {
+  width: 170px;
+  height: 170px;
+  background-image: url('imagens/caixa de presente.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  transition: top 0.3s ease, left 0.3s ease;
+  cursor: pointer;
+}
+
+#msg-inicial {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2em;
+  color: #f8bbd0;
+}
+
+.playlist-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.message {
+  margin-top: 60px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.message button {
+  background-color: #ff69b4;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ff69b4;
+}
+
+.heart {
+  position: absolute;
+  top: -30px;
+  font-size: 24px;
+  color: #ff69b4;
+  animation: fall 5s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(100vh) scale(1.5); opacity: 0; }
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ff69b4;
+  border-radius: 10px;
+}
+
+.menu-btn {
+  background-color: #1e2a38;
+  color: #ffb6c1;
+  border: 2px solid #ff69b4;
+  padding: 10px 16px;
+  font-size: 1em;
+  border-radius: 8px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.menu-btn:hover {
+  background-color: #ff69b4;
+  color: #1e2a38;
+}
+
+.secao {
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease-in;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+img {
+  max-width: 90%;
+  border-radius: 10px;
+}
+
+.modal {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.bouquet-wrapper {
+  position: relative;
+  width: 250px;  /* Ajuste a largura do buquê */
+  height: 300px;  /* Ajuste a altura do buquê */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Embrulho do buquê */
+.wrap-paper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #d8a2a9, #ffc0cb);
+  clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+#bouquet-container {
+  position: absolute;
+  bottom: x;  /* Ajuste a posição das flores dentro do embrulho */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;  /* Controle a largura das flores */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  /* Alinha as flores para cima dentro do embrulho */
+}
+
+.flower {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.flower.show {
+  opacity: 1;
+  transform: scale(1) rotate(360deg);
+  animation: grow 1s ease-in-out forwards;
+}
+
+.flower svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0.1) translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-gato {
+  text-align: center;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-casa {
+  text-align: center;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.modal-surpresa {
+  text-align: center;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+
+.close-btn {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modalEnvelope {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* impede scroll interno da modal */
+}
+
+.modal-content.carta-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: none;
+  overflow: visible;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  color: #ff69b4;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.envelope-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centraliza verticalmente */
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  background-color: #ff69b4;
+  position: relative;
+  perspective: 1000px;
+  transition: transform 0.7s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #ff1493;
+  transform-origin: top center;
+  transition: transform 1.0s ease;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.paper {
+  position: absolute;
+  top: 0;
+  left: -170px;
+  background-color: white;
+  width: 200%;
+  height: 180%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  padding: 20px;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+.envelope.aberta .flap {
+  transform: rotateX(-180deg);
+}
+
+.envelope.aberta .paper {
+  opacity: 1;
+}
+
+.mensagem-carta {
+  color: #000;
+  font-size: 0.9em;
+  text-align: left;
+  line-height: 1.4em;
+  max-height: 150%;
+  overflow-y: auto;
+}

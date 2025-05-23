@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Júlia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Tela Inicial -->
+  <div id="tela-inicial" class="tela ativa">
+    <h1>Abra a Caixa 🎁</h1>
+    <div class="gift-box" id="giftBox"></div>
+    <div id="msg-inicial"></div>
+  </div>
+
+  <!-- Tela Conteúdo -->
+  <div id="tela-conteudo" class="tela">
+    <div class="playlist-container">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/00DmD1cTmMiYUPbcYdlbrU?utm_source=generator" width="100%" height="190" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div class="message">
+      <button id="lerCarta">Clique para Ler</button>
+    </div>
+
+    <div class="modalEnvelope" id="modalCarta">
+  <div class="modal-content carta-modal">
+    <span class="close-btn" id="fecharModal">&times;</span>
+
+    <div class="envelope" id="envelopeCarta">
+      <div class="flap"></div>
+      <div class="paper">
+        <div class="mensagem-carta">
+          <h2>Júlia,</h2>
+          <p>Hoje o mundo comemora o dia em que você chegou e ele nunca mais foi o mesmo.</p>
+          <p>Desde que você existe, há mais luz, mais beleza e mais amor espalhado por aí. E desde que você entrou na minha vida, o meu universo ganhou a estrela mais linda e brilhante.</p>
+          <p>Você é uma das pessoas mais incríveis que tive o prazer de conhecer. Sua maneira única de cuidar, de ouvir, de estar presente mesmo com todo esse problemão de distância entre a gente. 
+          Você consegue fazer tudo isso de um jeito tão leve que, às vezes, parece que os continentes se juntam, como na música do Rubel, e eu consigo caminhar até você.</p>
+          <p>É como diz em Interestelar, "o amor é a única coisa que transcende o espaço e o tempo".
+          E eu sinto isso com você.  
+          Sinto no jeito que você é, no quanto você me faz bem, no quanto sou grata por te ter por perto.</p>
+          <p>Feliz aniversário, guapa. Obrigada por existir. Obrigada por ser você. Que o seu dia seja tão lindo quanto o teu sorriso, tão doce quanto tua voz e tão mágico quanto cada momento ao seu lado.</p>
+          <p>Que la vida te regale todo lo bonito que tú me haces sentir.</p>
+          <p>Com todo o amor do mundo (e mais um pouco),</p>
+          <p>Thuany.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <div style="margin: 20px 0;">
+        <button class="menu-btn" onclick="mostrarSeção('billie')">🎤 Billie Eilish</button>
+        <button class="menu-btn" onclick="mostrarSeção('mope')">🐾 Mope.io</button>
+        <button class="menu-btn" onclick="mostrarSeção('celtics')">🏀 Celtics</button>
+        <button class="menu-btn" onclick="mostrarSeção('presentes')">🎁 Presentes</button>
+      </div>
+    </div>
+
+    <div id="billie" class="secao" style="display: none;">
+      <p>Sua trilha sonora da alma! A Billie sempre esteve presente em todos os momentos da sua vida.</p>
+      <p>Apareça por aqui sempre que quiser ouvir tudinho dela.</p>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6cg4h2PoN9y?utm_source=generator" width="50%" height="450" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div id="mope" class="secao" style="display: none;">
+      <p>O joguinho do "Ratinho" para quando você quiser lembrar dos velhos tempos.</p>
+      <iframe src="https://mope.io" width="90%" height="600px" style="border: 3px solid #ff69b4; border-radius: 10px;"></iframe>
+    </div>
+
+    <div id="celtics" class="secao" style="display: none;">
+      <p>Tudo sobre o pior time da NBA.</p>
+      <iframe src="https://celticsbrasil.com.br/" width="90%" height="600px" style="border: 3px solid #ff69b4; border-radius: 10px;"></iframe>
+    </div>
+
+    <div id="presentes" class="secao" style="display: none;">
+      <p>Eu queria muito entregar pessoalmente, com direito a abraço, laço e talvez até um cheirinho de perfume…</p> 
+      <p>Mas como eu ainda não tirei o visto, tentei improvisar um jeitinho de te presentear mesmo de longe. Espero que meu ‘correio’ virtual funcione direitinho!</p>
+      <button class="menu-btn" onclick="abrirFlores()">💐</button>
+      <button class="menu-btn" onclick="abrirGatinho()">🐱</button>
+      <button class="menu-btn" onclick="abrirCasa()">🏠</button>
+      <button class="menu-btn" onclick="abrirSurpresa()">?</button>
+    </div>
+  </div>
+
+  <!-- Modal de Flores -->
+ <div id="modalFlores" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="fecharFlores()">&times;</span>
+    <div class="bouquet-wrapper">
+      <div class="wrap-paper"></div> <!-- embrulho -->
+      <div id="bouquet-container" class="bouquet-container"></div> <!-- flores -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal do Gatinho -->
+<div id="modalGatinho" class="modal-gato">
+  <div class="modal-content">
+    <span class="close-btn" onclick="fecharGatinho()">&times;</span>
+    <img src="imagens/kitty-chase-pixel.gif" alt="Gatinho pixel" style="max-width: 100%; border-radius: 12px;">
+  </div>
+</div>
+
+<!-- Modal Casa -->
+<div id="modalCasa" class="modal-casa">
+  <div class="modal-content">
+    <span class="close-btn" onclick="fecharCasa()">&times;</span>
+    <img src="imagens/familia.png" alt="Família" style="max-width: 90%; max-height: 80vh; border-radius: 12px; object-fit: contain;">
+  </div>
+</div>
+
+<!-- Modal Surpresa -->
+<div id="modalSurpresa" class="modal-surpresa">
+  <div class="modal-content">
+    <p>Isso pode não estar muito bom então considere como um presente bônus.</p>
+    <span class="close-btn" onclick="fecharSurpresa()">&times;</span>
+    <img src="imagens/QRCODE.png" alt="Surpresa">
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
